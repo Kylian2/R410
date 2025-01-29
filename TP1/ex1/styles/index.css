@@ -23,7 +23,7 @@ aside{
 	border  : 2px solid black;
 	margin  : 1rem;
 	padding : 1rem;
-	background-image : url("../../images/matrix.jpg");
+	background-image : url("../../../images/matrix.jpg");
 	background-repeat : no-repeat;
 	background-size : cover;
 }
