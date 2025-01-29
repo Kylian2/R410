@@ -167,8 +167,29 @@ main form input[type=submit],main form input[type=reset]{
 
 /* ------------------------------------------------------------------ */
 
-.color{
-	color: white;
+.color-container{
+	display: flex;
+	gap: 10px;
+	justify-content: end;
+}
+#color{
+	display: flex;
+	gap: 5px;
+	justify-content: end;
+	align-items: center;
+}
+
+.color-container > div{
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.colorbox{
+	display: block;
+	width: 20px;
+	height: 20px;
+	border-radius: 40px;
 }
 
 .lightpink{

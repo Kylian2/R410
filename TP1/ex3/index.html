@@ -23,31 +23,18 @@
 		</nav>
 		
 		<aside>
-			<span>
-				<input type="color" name="color-1" id="color-1">
-				<input type="color" name="color-2" id="color-2">
-				<button onclick="ajouter_deux_couleurs()">Ajouter</button>
-			</span>
-			<table class="color">
-				<tbody>
-					<tr>
-						<td class="lightpink">
-							LightPink
-						</td>
-						<td class="hotpink">
-							HotPink
-						</td>
-					</tr>
-					<tr>
-						<td class="deeppink">
-							DeepPink
-						</td>
-						<td class="mediumvioletred">
-							MediumVioletRed
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			<div class="color-container">
+				<div id="color">
+					<span class="colorbox lightpink" data-color="lightpink"></span>
+					<span class="colorbox hotpink" data-color="hotpink"></span>
+					<span class="colorbox deeppink" data-color="deeppink"></span>
+					<span class="colorbox mediumvioletred" data-color="mediumvioletred"></span>
+				</div>
+				<div>
+					<input type="color" name="color-1" id="color-1">
+					<button onclick="ajouter_deux_couleurs()">Ajouter</button>
+				</div>
+			</div>
 			<p>
 				Cette page est réalisée	en première année d'informatique,
 				à l'iut d'Orsay, dans le cadre du cours R1.02
