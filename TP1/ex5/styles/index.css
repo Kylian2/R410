@@ -235,3 +235,58 @@ search input:invalid{
 .highlight{
 	background: rgba(135, 206, 250, 0.667);
 }
+
+.cadre{
+	background: none;
+	display: flex;
+	justify-content: space-around;
+}
+
+.cadre > img{
+	height: 200px;
+	width: 150px;
+}
+
+#cadre-1{
+	background: url('../../../images/filtres_et_cadres/cadre_01.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	width: 150px;
+	height: 200px;
+	position: relative;
+	top: 1px;
+	left: 1px;
+}
+
+#cadre-2{
+	background: url('../../../images/filtres_et_cadres/cadre_02.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	width: 140px;
+	height: 200px;
+	position: relative;
+	top: 1px;
+	left: 1px;
+}
+
+#cadre-3{
+	background: url('../../../images/filtres_et_cadres/cadre_03.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 200px;
+	width: 140px;
+	position: relative;
+	top: 1px;
+	left: 1px;
+}
+
+#filtre-1{
+	background: url('../../../images/filtres_et_cadres/filtre_01.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	width: 200px;
+	height: 200px;
+	position: relative;
+	top: 1px;
+	left: 1px;
+}
