@@ -3,6 +3,7 @@
 *{
 	margin  : 0;
 	padding : 0;
+	box-sizing: border-box;
 }
 
 header{
@@ -206,4 +207,31 @@ main form input[type=submit],main form input[type=reset]{
 
 .mediumvioletred{
 	background: mediumvioletred;
+}
+
+search{
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
+	padding : 0.2rem 1rem;
+}
+
+search input{
+	background: url('../../../images/loupe.png');
+	background-size: 15px;
+	background-repeat: no-repeat;
+	background-position: right;
+	padding: 5px;
+}
+
+search input:valid{
+	border: 2px solid greenyellow;
+}
+
+search input:invalid{
+	border: 2px solid red;
+}
+
+.highlight{
+	background: rgba(135, 206, 250, 0.667);
 }
