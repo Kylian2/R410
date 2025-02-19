@@ -6,7 +6,6 @@
 		<link rel="stylesheet" href="./styles/index.css" />
 		<link rel="stylesheet" href="./styles/float_101.css" />
 		<link rel="stylesheet" href="./styles/flexbox_101_nav.css" />
-		<link rel="stylesheet" href="./styles/tableau.css" />
 		<script src="./script/tableau.js"></script> 
 	</head>
 	<body>
@@ -16,7 +15,7 @@
 			<p>Richard Kylian,  IUT-Orsay</p>
 		</header>
 		<nav>
-			<a href="./index.html">Acceuil</a>
+			<a href="./index.html">Accueil</a>
 			<a class="ici" href="./tableau.html">Tableau</a>
 			<a href="./formulaire.html">Formulaire</a>
 			<a href="./images.html">Images</a>
@@ -29,7 +28,11 @@
 					<h1>a table des réalités inaliénables</h1>
 				</div>
 				<article>
-					<table>
+					<div>
+						<button onclick="mobile_to_desktop()">Desktop</button>
+						<button onclick="desktop_to_mobile()">Mobile</button>
+					</div>
+					<table id="table">
 						<caption>Notes apprentis Arcanistes</caption>
 						<thead>
 							<tr>
