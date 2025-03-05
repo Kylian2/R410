@@ -103,6 +103,30 @@ main table {
 	margin : 0 auto;
 }
 
+.filter th{
+	background: #fff;
+}
+
+.filter > th > div{
+	display: flex;
+	gap: 5px;
+	justify-content: center;
+	margin: 0;
+}
+
+.filter > th > div > img{
+	cursor: pointer;
+	height: 30px;
+	border: 2px solid lightskyblue;
+}
+
+.filter > th > div  > .asc{
+	transform: rotate(270deg);
+}
+
+.filter > th > div > .desc{
+	transform: rotate(90deg);
+}
 /* ----------------------- css du formulaire ------------------------ */
 
 main form {

@@ -140,12 +140,14 @@ function mobile_to_desktop(){
 
     /* Construit le thead */
     const thead = document.createElement('thead');
-    thead.appendChild(document.createElement('td'));
+    const trhead = document.createElement('tr');
+    trhead.appendChild(document.createElement('td'));
     data['libelles'].forEach(libelle => {
         const th = document.createElement('th');
         th.textContent = libelle;
-        thead.appendChild(th);
+        trhead.appendChild(th);
     })
+    thead.appendChild(trhead);
     table.appendChild(thead);
 
     /* Construit le body */

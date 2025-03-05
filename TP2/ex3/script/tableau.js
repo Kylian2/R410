@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const namesDOM = document.querySelectorAll('tbody > tr > th');
     const names = Array.from(namesDOM).map(n => n.textContent);
 
-    const libellesDOM = document.querySelectorAll('thead > tr:nth-child(2) > th');
+    const libellesDOM = document.querySelectorAll('thead > tr:nth-child(1) > th');
     const libelles = Array.from(libellesDOM).map(n => n.textContent);
 
     data = {
@@ -70,12 +70,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
         data['students'].push(infos);
     }
 
-    console.log(data);
+
+    /* Partie concernant le tri des lignes du tableau */
+
+    const ascs = document.querySelectorAll('.asc');
+    const descs = document.querySelectorAll('.desc');
+
+    ascs.forEach((asc) => {
+        asc.addEventListener('click', trier);
+    });
+
+    descs.forEach((desc) => {
+        desc.addEventListener('click', trier);
+    });
+    
 })
 
 function desktop_to_mobile(){
     const table = document.getElementById('table');
-    console.log(table);
     table.classList.toggle('mobile');
 
     /* Vide le tableau */
@@ -130,7 +142,6 @@ function desktop_to_mobile(){
 
 function mobile_to_desktop(){
     const table = document.getElementById('table');
-    console.log(table);
     table.classList.toggle('mobile');
 
     /* Vide le tableau */
@@ -140,12 +151,36 @@ function mobile_to_desktop(){
 
     /* Construit le thead */
     const thead = document.createElement('thead');
-    thead.appendChild(document.createElement('td'));
+    const trhead = document.createElement('tr');
+    trhead.appendChild(document.createElement('td'));
     data['libelles'].forEach(libelle => {
         const th = document.createElement('th');
         th.textContent = libelle;
-        thead.appendChild(th);
+        trhead.appendChild(th);
     })
+    thead.appendChild(trhead);
+    const trhead2 = document.createElement('tr');
+    trhead2.classList.add('filter');
+    trhead2.appendChild(document.createElement('td'));
+    for(let i = 0; i < data['libelles'].length; i++){
+        const th2 = document.createElement('th');
+        const div = document.createElement('div');
+        const asc = document.createElement('img');
+        asc.src = "../../images/arrow.png";
+        asc.alt = "asc";
+        asc.classList.add('asc');
+        div.appendChild(asc);
+        const desc = document.createElement('img');
+        desc.src = "../../images/arrow.png";
+        desc.alt = "desc"
+        desc.classList.add('desc');
+        div.appendChild(desc);
+        th2.appendChild(div);  
+        trhead2.appendChild(th2);
+        asc.addEventListener('click', trier);
+        desc.addEventListener('click', trier);
+    }
+    thead.appendChild(trhead2);
     table.appendChild(thead);
 
     /* Construit le body */
@@ -180,4 +215,67 @@ function mobile_to_desktop(){
     });
     tfoot.appendChild(tr);
     table.appendChild(tfoot);
+}
+
+function trier(event){
+
+    const lines = document.querySelectorAll('tbody > tr');
+    const lines_data = [...lines].map((l) => [...l.children].map((c) => c.textContent));
+
+    const parent = event.target.parentNode.parentNode.parentNode;
+    let index = -1;
+    for(let i = 0; i < parent.children.length; i++){
+        if(parent.children[i] == event.target.parentNode.parentNode){
+            index = i;
+        }
+    }
+
+    const acs = event.target.classList.contains('asc');
+    let ordered_lines = []
+    if(acs){
+        ordered_lines = lines_data.sort((a, b) => {
+            if(Number.parseInt(a[index]) < Number.parseInt(b[index])){
+                return -1;
+            }
+            if(Number.parseInt(a[index]) > Number.parseInt(b[index])){
+                return 1;
+            }
+            return 0;
+        });
+    }else{
+        ordered_lines = lines_data.sort((a, b) => {
+            if(Number.parseInt(a[index]) < Number.parseInt(b[index])){
+                return 1;
+            }
+            if(Number.parseInt(a[index]) > Number.parseInt(b[index])){
+                return -1;
+            }
+            return 0;
+        });
+    }
+
+    const tbody = document.querySelector('tbody');
+
+    /* Vide le tableau */
+    while(tbody.firstChild){
+        tbody.removeChild(tbody.firstChild);
+    }
+
+    /* Rempli le tableau */
+    lines_data.forEach(g => {
+        const tr = document.createElement('tr');
+        const th = document.createElement('th');
+        th.textContent = g[0];
+        tr.appendChild(th);
+        for(let i = 1; i < g.length; i++){
+            const td = document.createElement('td');
+            td.textContent = g[i];
+            if(g[i] < 10){
+                td.style.border = '2px solid red';
+            }
+            tr.appendChild(td);
+        }
+        tbody.appendChild(tr);
+    })
+
 }
