@@ -42,17 +42,6 @@ for ($i = 0; $i < $number_of_students; $i++) {
 
 $data["students"] = $students;
 
-$means = array();
-for ($i = 0; $i < count($libelles); $i++) {
-    $sum = 0;
-    for ($j = 0; $j < count($students); $j++) {
-        $sum += $students[$j]["grades"][$i];
-    }
-    array_push($means, round($sum / count($students), 2));
-}
-
-$data["means"] = $means;
-
 echo json_encode($data);
  
 ?>

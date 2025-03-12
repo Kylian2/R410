@@ -4,6 +4,21 @@ const fetchData = async () => {
     const response = await fetch("https://webdev.iut-orsay.fr/~kricha2/R410/TP3/ex1/notes_v1.php");
     if(response.ok){
         data = await response.json();
+
+        let sums = [];
+
+        for (let i = 0; i < data['students'][0]['grades'].length; i++) {
+            sums.push(0);
+        }
+        
+        data['students'].forEach((s) => {
+            s['grades'].forEach((g, j) => {
+                sums[j] += g;
+            });
+        });
+
+        data['means'] = sums.map(s => (s / data['students'].length).toFixed(2));
+        
         console.log(data);
     }else{
         console.error("Erreur lors de la récupération des données");
