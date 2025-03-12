@@ -1,75 +1,16 @@
 let data;
-let table;
+
+const fetchData = async () => {
+    const response = await fetch("https://webdev.iut-orsay.fr/~kricha2/R410/TP3/ex1/notes_v1.php");
+    if(response.ok){
+        data = await response.json();
+        console.log(data);
+    }else{
+        console.error("Erreur lors de la récupération des données");
+    }
+}
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    
-    table = [];
-
-    const lines = document.querySelectorAll("tbody > tr");
-    lines.forEach(line => {
-        l = [];
-        for (const grade of line.children) {
-            if(Number.parseInt(grade.textContent)){
-                l.push(Number.parseInt(grade.textContent));
-                if(grade.textContent < 10){
-                    grade.style.border = '2px solid red';
-                }
-            }
-        }
-        table.push(l);
-    });
-
-    const means = [];
-    for(i = 0; i < table[0].length; i++){
-        sum = 0;
-        for(j= 0; j < table.length; j++){
-            sum += table[j][i];
-        }
-        means.push((sum/table.length).toFixed(2));
-    }
-
-    var i = 0;
-    const meanContainer = document.querySelectorAll('.mean > td');
-    meanContainer.forEach((g) => {
-        g.textContent = means[i];
-        i++;
-    })
-
-    i = 0;
-    const agregationContainer = document.querySelectorAll('.agregation > td');
-    agregationContainer.forEach((g) => {
-        let x = 0;
-        let n = Number.parseInt(g.getAttribute("colspan")) || 1;
-        for (let j = 0; j < n; j++){
-            x += parseFloat(means[i + j]);
-        }
-        g.textContent = (x/n).toFixed(2);
-        i += n;
-    })
-
-    /* Création d'un json comportant les données du tableau */
-    const namesDOM = document.querySelectorAll('tbody > tr > th');
-    const names = Array.from(namesDOM).map(n => n.textContent);
-
-    const libellesDOM = document.querySelectorAll('thead > tr:nth-child(1) > th');
-    const libelles = Array.from(libellesDOM).map(n => n.textContent);
-
-    data = {
-        libelles : libelles,
-        means: means,
-        students : []
-    };
-
-    for(let i = 0; i < names.length; i++){
-
-        infos = {
-            name: names[i],
-            grades: table[i],
-        }
-
-        data['students'].push(infos);
-    }
-
 
     /* Partie concernant le tri des lignes du tableau */
 
@@ -86,7 +27,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     
 })
 
-function desktop_to_mobile(){
+function mobile(){
     const table = document.getElementById('table');
     table.classList.toggle('mobile');
 
@@ -140,7 +81,7 @@ function desktop_to_mobile(){
     })
 }
 
-function mobile_to_desktop(){
+function desktop(){
     const table = document.getElementById('table');
     table.classList.toggle('mobile');
 
@@ -279,3 +220,4 @@ function trier(event){
     })
 
 }
+fetchData();

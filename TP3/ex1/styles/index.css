@@ -127,6 +127,14 @@ main table {
 .filter > th > div > .desc{
 	transform: rotate(90deg);
 }
+
+.buttons-container{
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	gap: 10px;
+}
 /* ----------------------- css du formulaire ------------------------ */
 
 main form {
