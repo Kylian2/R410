@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hidden{
+    opacity: 0;
+}
+
+.none{
+    display: none !important;
+}
+
+h1{
+    margin: 30px 2vw;
+}
+
+.init{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 40px 2vw;
+}
+
+.init label:after{
+    content: " :";
+}
+
+.init > div.form{
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    align-items: center;
+}
+
+.init input{
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: 2px solid black;
+}
+
+.init > button{
+    margin-top: 10px;
+    width: fit-content;
+    padding: 10px 20px;
+}
+
+.game-infos{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.hangman{
+    height: 300px;
+}
+
+.used-letters{
+    display: flex;
+    gap: 5px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.guessing{
+    display: flex;
+    gap: 5px;
+    align-items: end;
+    justify-content: center;
+}
+
+.found{
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    width: 25px;
+    display: block;
+}
+
+.to-be-guessed::after{
+    content: "";
+    height: 5px;
+    background: black;
+    display: block;
+    width: 25px;
+    margin-top: -10px;
+}
+
+.found::after{
+    content: "";
+    height: 5px;
+    background: black;
+    opacity: 0;
+    display: block;
+    width: 25px;
+}

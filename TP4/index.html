@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Le pendu</title>
+</head>
+<body>
+    <h1>Le jeu du pendu</h1>
+    <div id="init" class="init">
+        <div class="infos">
+            <p>Entrez les règles du pendu</p>
+            <p id="error" class="hidden">Attention, la taille minimale doit être inférieure à la taille maximale</p>
+        </div>
+        <div class="form">
+            <label for="min_char">Taille minimale</label>
+            <input type="number" name="min_char" id="min_char" min="6" max="20" value="6" placeholder="6">
+        </div>
+        <div class="form">
+            <label for="max_char">Taille maximale</label>
+            <input type="number" name="max_char" id="max_char" min="6" max="20" value="20" placeholder="20">
+        </div>
+        <button onclick="start_game()">Démarrer</button>
+    </div>
+
+    <div id="game" class="game none">
+        <div class="game-infos">
+            <svg class="hangman" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+                <!-- Potence -->
+                <line x1="60" y1="250" x2="140" y2="250" stroke="black" stroke-width="4" />
+                <line x1="100" y1="250" x2="100" y2="50" stroke="black" stroke-width="4" />
+                <line x1="100" y1="50" x2="200" y2="50" stroke="black" stroke-width="4" />
+                <line x1="200" y1="50" x2="200" y2="80" stroke="black" stroke-width="4" />
+                
+                <!-- Parties du corps avec attributs d'ID pour les afficher progressivement -->
+                <circle id="head" cx="200" cy="100" r="20" stroke="black" stroke-width="3" fill="transparent" style="display:none;" />
+                
+                <line id="body" x1="200" y1="120" x2="200" y2="180" stroke="black" stroke-width="3" style="display:none;" />
+                
+                <line id="left-arm" x1="200" y1="140" x2="170" y2="120" stroke="black" stroke-width="3" style="display:none;" />
+                
+                <line id="right-arm" x1="200" y1="140" x2="230" y2="120" stroke="black" stroke-width="3" style="display:none;" />
+                
+                <line id="left-leg" x1="200" y1="180" x2="170" y2="220" stroke="black" stroke-width="3" style="display:none;" />
+                
+                <line id="right-leg" x1="200" y1="180" x2="230" y2="220" stroke="black" stroke-width="3" style="display:none;" />
+            </svg>
+        </div>
+        <div id="guess-zone" class="guessing">
+        </div>
+    </div>
+</body>
+</html>
