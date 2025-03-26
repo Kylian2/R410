@@ -42,10 +42,11 @@ h1{
     border: 2px solid black;
 }
 
-.init > button{
+button{
     margin-top: 10px;
     width: fit-content;
     padding: 10px 20px;
+    cursor: pointer;
 }
 
 .game-infos{
@@ -97,4 +98,18 @@ h1{
     opacity: 0;
     display: block;
     width: 25px;
+}
+
+#game-over{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#game-over > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

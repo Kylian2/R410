@@ -51,5 +51,21 @@
         <div id="guess-zone" class="guessing">
         </div>
     </div>
+
+    <div id="game-over" class="none">
+        <div id="game-victory" class="none">
+            <h2>Félicitation ! Vous avez gagné !</h2>
+            <p>Vous avez deviné <b class="reveal"></b> en seulement <b id="errors"></b> erreurs.</p>
+        </div>
+
+        <div id="game-defeat" class="none">
+            <h2>Vous avez perdu cette manche...</h2>
+            <p>Le mot était <b class="reveal"></b></p>
+        </div>
+
+        <div>
+            <button onclick="playAgain()">Faire une nouvelle partie</button>
+        </div>
+    </div>
 </body>
 </html>
