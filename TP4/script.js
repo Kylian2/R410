@@ -127,4 +127,8 @@ const playAgain = () => {
     victory.classList.add("none");
     game.classList.add("none");
     init.classList.remove("none");
+
+    for(let i = 0; i < body_element.length; i++){
+        body_element[i].style.display = 'none';
+    }
 }
