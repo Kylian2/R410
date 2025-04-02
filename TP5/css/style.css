@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background: url(../images/FAQs-1600x1067.jpg) center;
+    min-height: 250px;
+    color: white;
+    background-size: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+}
+
+nav{
+    margin: 20px auto;
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav > button{
+    background: rgb(92, 168, 132);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+h3{
+    margin: 10px 0;
+}
+
+.main-content{
+    width: 800px;
+    margin: 20px auto;
+    background:rgb(217, 215, 215);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+#card-container{
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.card{
+    border: 2px solid black;
+    padding: 0 0 10px 0;
+    border-radius: 5px;
+    display: flex;
+    gap: 10px;
+}
+
+.card > div:nth-child(1){
+    padding: 10px;
+    gap: 10px;
+}
+
+.card > div:nth-child(1) > div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card > div:nth-child(2){
+    align-content: center;
+    padding: 10px;
+}
+
+.card > div:nth-child(2) button{
+    font-size: 16px;
+}
+
+#title{
+    width: 300px;
+}
+
+#date{
+    width: 100px;
+}
+
+#description{
+    width: 500px;
+    height: 90px;
+}
+
+.error{
+    color: red;
+}
+
+.none{
+    display: none;
+}

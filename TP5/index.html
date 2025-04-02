@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="script/script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>
+            TODO APP
+        </h1>
+    </header>
+    <main>
+
+        <nav>
+            <button onclick="displayTask(true)">Pending</button>
+            <button onclick="displayTask(false)">Finish</button>
+        </nav>
+
+        <div class="main-content">
+            <h3>TODO en cours</h3>
+            <div id="card-container">
+            </div>
+            <div id="add-item">
+                <div class="card">
+                    <div>
+                        <p class="error none" id="error">Remplissez tout les champs</p>
+                        <div>
+                            <input type="text" name="text" id="title" placeholder="Donnez un nom à la tache">
+                            <input type="date" name="date" id="date">
+                        </div>
+                        <textarea name="description" id="description"></textarea>
+                    </div>
+                    <div>
+                        <button onclick="addNewTask()">Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
